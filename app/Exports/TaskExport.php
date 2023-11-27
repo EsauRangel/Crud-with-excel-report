@@ -13,9 +13,9 @@ class TaskExport
         $this->data = $data;
     }
 
-    // public function view(): View
-    // {
-    //     return view('');
-    //     // return view('exports.task_report', ['data' => $this->data]);
-    // }
+    public function view(): View
+    {
+        return view('');
+        return view('exports.task_report', ['data' => $this->data]);
+    }
 }
