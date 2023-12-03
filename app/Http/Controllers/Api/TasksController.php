@@ -21,8 +21,10 @@ class TasksController extends Controller
         if ($report) {
             $tasks = $tasks->get();
 
-            ob_end_clean();
-            // return Excel::download(new TaskExport($tasks), "Tasks.xlsx");
+            if(ob_get_contents()){
+                ob_end_clean();
+            }
+            return Excel::download(new TaskExport($tasks), "Tasks.xlsx");
 
         } else {
             $tasks = $tasks->paginate($per_page);

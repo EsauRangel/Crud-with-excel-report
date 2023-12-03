@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use Illuminate\Contracts\View\View;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
 class TaskExport
 {
@@ -13,9 +14,19 @@ class TaskExport
         $this->data = $data;
     }
 
+    public function drawings()
+    {
+        $drawing = new Drawing();
+        $drawing->setName('Logo');
+        $drawing->setDescription('logo');
+        $drawing->setHeight(50);
+        $drawing->setCoordinates('G1');
+
+        return [$drawing];
+    }
+
     public function view(): View
     {
-        return view('');
-        return view('exports.task_report', ['data' => $this->data]);
+        return view('exports.task_report', ["data" => $this->data]);
     }
 }

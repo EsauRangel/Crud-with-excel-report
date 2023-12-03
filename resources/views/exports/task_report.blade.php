@@ -40,6 +40,7 @@
 
 
             @foreach ($data as $key => $task)
+
                 <tr>
                     <td align="center">{{ $task->id }}</td>
                     <td align="center">{{ $task->title}}</td>
@@ -55,9 +56,10 @@
         </tbody>
     </table>
 
+    @dd();
 
 
 </body>
-@php(dd())
+
 
 </html>
